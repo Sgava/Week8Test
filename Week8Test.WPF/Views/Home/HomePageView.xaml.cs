@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Week8Test.WPF.Messages;
 using Week8Test.WPF.ViewModels.Home;
 
 namespace Week8Test.WPF.Views.Home
@@ -25,6 +27,17 @@ namespace Week8Test.WPF.Views.Home
         {
             InitializeComponent();
             DataContext = new HomePageViewModel();
+            Messenger.Default.Register<ShowViewMessage>(this, OnShowViewMessage);
+        }
+
+        private void OnShowViewMessage(ShowViewMessage msg)
+        {
+            if (msg.ViewName == "homepageview")
+            {
+                HomePageView view = new HomePageView();
+                view.DataContext = new HomePageViewModel();
+                view.Show();
+            }
         }
     }
 }

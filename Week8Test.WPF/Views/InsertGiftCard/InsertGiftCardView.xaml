@@ -7,6 +7,35 @@
         mc:Ignorable="d"
         Title="InsertGiftCardView" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBox> Mittente</TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <TextBox>Destinatario</TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0">
+            <TextBox>Importo</TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0">
+            <TextBox>Data di scadenza</TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Grid.Column="0">
+            <TextBox>Messaggio</TextBox>
+        </StackPanel>
     </Grid>
 </Window>
