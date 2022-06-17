@@ -14,7 +14,19 @@ namespace Week8Test.Repository
         {
             new GiftCard
             {
+                Id = 1,
                 Destinatario = "Luca",
+                Mittente = "Fabio",
+                DataDiScadenza = new DateTime(2023,10,30),
+                Importo = 300                
+            },
+            new GiftCard
+            {
+                Id = 2,
+                Destinatario = "Sara",
+                Mittente = "Gió",
+                DataDiScadenza = new DateTime(2023,4,1),
+                Importo = 200
             }
         };
         public bool Add(GiftCard item)
