@@ -8,11 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
     <Folder Include="Converters\" />
-    <Folder Include="ViewModels\Home\" />
     <Folder Include="ViewModels\Update\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\Update\" />
   </ItemGroup>
 

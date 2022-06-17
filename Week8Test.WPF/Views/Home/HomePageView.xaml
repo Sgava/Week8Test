@@ -1,12 +1,12 @@
-﻿<Window x:Class="Week8Test.WPF.MainWindow"
+﻿<Window x:Class="Week8Test.WPF.Views.Home.HomePageView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Week8Test.WPF"
+        xmlns:local="clr-namespace:Week8Test.WPF.Views.Home"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="HomePageView" Height="450" Width="800">
     <Grid>
-
+        
     </Grid>
 </Window>

@@ -12,5 +12,8 @@ namespace Week8Test.CORE.BusinessLayer
         bool CreaGiftCard(GiftCard gift);
         bool CancellaGiftCard(GiftCard gift);
         bool AggiornaGiftCard(GiftCard gift);
+        List<GiftCard> GetAllGiftCards();
+
+
     }
 }

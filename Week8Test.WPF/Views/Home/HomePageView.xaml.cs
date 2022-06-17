@@ -10,17 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Week8Test.WPF
+namespace Week8Test.WPF.Views.Home
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for HomePageView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomePageView : Window
     {
-        public MainWindow()
+        private List<
+        public HomePageView()
         {
             InitializeComponent();
         }
