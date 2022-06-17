@@ -19,7 +19,7 @@ namespace Week8Test.WPF.Views.Home
     /// </summary>
     public partial class HomePageView : Window
     {
-        private List<
+        
         public HomePageView()
         {
             InitializeComponent();

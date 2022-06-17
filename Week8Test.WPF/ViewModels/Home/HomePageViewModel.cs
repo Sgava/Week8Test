@@ -19,7 +19,7 @@ namespace Week8Test.WPF.ViewModels.Home
 
 
 
-        private List<string> CardDaVisualizzareInHome
+        public List<string> CardDaVisualizzareInHome
         {
             get
             {
@@ -30,7 +30,7 @@ namespace Week8Test.WPF.ViewModels.Home
                 _cardDaVisualizzareInHome = value;
             }
         }
-        private List<string> CardDaVisualizzareConDettagli
+        public List<string> CardDaVisualizzareConDettagli
         {
             get
             {
@@ -48,6 +48,11 @@ namespace Week8Test.WPF.ViewModels.Home
         public HomePageViewModel()
         {
             Bl = DependencyContainer.Resolve<IBusinessLayer>();
+            var lista = Bl.GetAllGiftCards();
+            foreach (var card in lista)
+            {
+                CardDaVisualizzareInHome.Add($" {card.Destinatario} - {card.Importo}€");
+            }
         }
     }
 }
