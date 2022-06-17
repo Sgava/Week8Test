@@ -11,20 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Week8Test.WPF.ViewModels.Home;
+using Week8Test.WPF.ViewModels.Update;
 
-namespace Week8Test.WPF.Views.Home
+namespace Week8Test.WPF.Views.Update
 {
     /// <summary>
-    /// Interaction logic for HomePageView.xaml
+    /// Interaction logic for UpdateView.xaml
     /// </summary>
-    public partial class HomePageView : Window
+    public partial class UpdateView : Window
     {
-        
-        public HomePageView()
+        public UpdateView()
         {
             InitializeComponent();
-            DataContext = new HomePageViewModel();
+            DataContext = new UpdateViewModel();
         }
     }
 }

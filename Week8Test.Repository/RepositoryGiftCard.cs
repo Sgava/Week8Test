@@ -39,6 +39,12 @@ namespace Week8Test.Repository
             return true;
         }
 
+        public GiftCard CercaGiftPerDestinatario(string nome)
+        {
+            var giftCard = _ListaGift.FirstOrDefault(g => g.Destinatario == nome);
+            return giftCard;
+        }
+
         public bool Delete(GiftCard item)
         {
             var giftCardDaEliminare = _ListaGift.FirstOrDefault(d => d.Id == item.Id);

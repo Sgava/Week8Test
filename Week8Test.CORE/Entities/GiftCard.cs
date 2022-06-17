@@ -15,14 +15,14 @@ namespace Week8Test.CORE.Entities
         public double Importo { get; set; } 
         public string Messaggio { get; set; }
 
-        public string ToShortString(GiftCard card)
+        public string ToShortString()
         {
             return $"{Destinatario} -- {Importo}€";
         }
 
-        public string ToLongString(GiftCard card)
+        public string ToLongString()
         {
-            return $"From {Mittente} to {Destinatario} - {Importo} - {Messaggio} - da usare entro il {DataDiScadenza.ToShortDateString()}";
+            return $"From {Mittente} to {Destinatario} - {Importo}€ - da usare entro il {DataDiScadenza.ToShortDateString()}\n  - {Messaggio}";
         }
     }
 }

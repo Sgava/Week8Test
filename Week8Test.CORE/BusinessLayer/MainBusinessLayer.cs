@@ -35,5 +35,10 @@ namespace Week8Test.CORE.BusinessLayer
         {
             return _repositoryCard.GetAll();
         }
+
+        public GiftCard GetGiftCardByName(string nome)
+        {
+            return _repositoryCard.CercaGiftPerDestinatario(nome);
+        }
     }
 }

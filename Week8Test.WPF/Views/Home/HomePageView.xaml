@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Week8Test.WPF.Views.Home"
-        xmlns:vm="clr-namespace:Week8Test.ViewModels.Home" 
+        xmlns:vm="clr-namespace:Week8Test.WPF.ViewModels.Home" 
+        xmlns:converter="clr-namespace:Week8Test.WPF.Converters"
         d:DataContext="{d:DesignInstance vm:HomePageViewModel}"
         mc:Ignorable="d"
         Title="HomePageView" Height="520" Width="800">
+    <Window.Resources>
+        
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"></converter:BoolToVisibilityConverter>
+        
+    </Window.Resources>
     <Grid Height="500" Width="800"          
           Background="LightSteelBlue">
         <Grid.ColumnDefinitions>
@@ -52,20 +58,38 @@
                                 BorderThickness="5" 
                                 BorderBrush="LightSteelBlue">
                     <ListBox ItemsSource="{Binding CardDaVisualizzareInHome}"
-                                    Background="Gainsboro"
-                                     SelectedItem="{}">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" />
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
+                             SelectedItem="{Binding CardSelezionata}">
+                        
                     </ListBox>
                 </Border>
+                <StackPanel Grid.Column="0" Grid.Row="1"
+                            VerticalAlignment="Center">
+                    <Button Margin="20"
+                            Height="50"
+                            FontSize="20"
+                            >Crea Una Gift Card</Button>
+                </StackPanel>
                 <Grid Grid.Column="0" Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Grid.Row="0"
+                                VerticalAlignment="Center">
+                        <Button Margin="20"
+                                Height="50"
+                                FontSize="20"
+                                >Modifica</Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="0"
+                                VerticalAlignment="Center">
+                        <Button Margin="20"
+                                Height="50"
+                                FontSize="20"
+                                Background="Red"
+                                >Elimina</Button>
+                    </StackPanel>
                 </Grid>
                 
             </Grid>
@@ -78,6 +102,27 @@
                     <RowDefinition Height="300"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
+               
+                <Border Grid.Column="1" Grid.Row="0" 
+                                BorderThickness="3" 
+                                BorderBrush="LightSteelBlue">
+
+                    <StackPanel Visibility="{Binding Path=IsChecked, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <TextBlock Height="50" VerticalAlignment="Center"
+                                   Background="Gainsboro"
+                                   
+                                   Text="{Binding CardDaVisualizzareConDettagli, Mode=OneWay}">
+
+                        </TextBlock>
+                    </StackPanel>
+                    
+                </Border>
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    <CheckBox Margin="4" IsChecked="{Binding Path=IsChecked}"
+                              Command="{Binding MostraCardCommand}">mostra dettagli</CheckBox>
+                </StackPanel>
+
+
             </Grid>
         </Grid>
         

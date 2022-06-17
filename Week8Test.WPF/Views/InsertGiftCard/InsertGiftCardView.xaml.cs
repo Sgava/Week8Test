@@ -11,20 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Week8Test.WPF.ViewModels.Home;
 
-namespace Week8Test.WPF.Views.Home
+namespace Week8Test.WPF.Views.InsertGiftCard
 {
     /// <summary>
-    /// Interaction logic for HomePageView.xaml
+    /// Interaction logic for InsertGiftCardView.xaml
     /// </summary>
-    public partial class HomePageView : Window
+    public partial class InsertGiftCardView : Window
     {
-        
-        public HomePageView()
+        public InsertGiftCardView()
         {
             InitializeComponent();
-            DataContext = new HomePageViewModel();
         }
     }
 }

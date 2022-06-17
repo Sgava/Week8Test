@@ -9,6 +9,6 @@ namespace Week8Test.CORE.Interfaces
 {
     public interface IRepositoryGiftCard : IRepository<GiftCard>
     {
-
+        GiftCard CercaGiftPerDestinatario(string nome);
     }
 }

@@ -1,23 +1,41 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Week8Test.CORE;
 using Week8Test.CORE.BusinessLayer;
 using Week8Test.CORE.Entities;
+using Week8Test.WPF.Messages;
 
 namespace Week8Test.WPF.ViewModels.Home
 {
-    public class HomePageViewModel
+    public class HomePageViewModel : ViewModelBase
     {
-        private IBusinessLayer Bl;        
+        private IBusinessLayer Bl;
         private List<string> _cardDaVisualizzareInHome = new List<string>();
-        private List<string> _cardDaVisualizzareConDettagli = new List<string>();
+        private string _cardDaVisualizzareConDettagli;
+        private string _cardSelezionata;
+        private bool _isChecked = false;
+        public ICommand MostraCardCommand { get; set; }
+        public ICommand EliminaGiftCardCommand { get; set; }
+        public ICommand VaiAllaVistaCreaCommand { get; set; }  
 
-
-
-
+        
+        public bool IsChecked
+        {
+            get => _isChecked;
+            set
+            {
+                _isChecked = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public List<string> CardDaVisualizzareInHome
         {
@@ -28,9 +46,11 @@ namespace Week8Test.WPF.ViewModels.Home
             set
             {
                 _cardDaVisualizzareInHome = value;
+                RaisePropertyChanged();
             }
         }
-        public List<string> CardDaVisualizzareConDettagli
+
+        public string CardDaVisualizzareConDettagli
         {
             get
             {
@@ -38,21 +58,64 @@ namespace Week8Test.WPF.ViewModels.Home
             }
             set
             {
-                _cardDaVisualizzareConDettagli= value;  
+                _cardDaVisualizzareConDettagli = value;
+                RaisePropertyChanged();
             }
 
         }
+
+        public string CardSelezionata
+        {
+            get
+            {
+                return _cardSelezionata;
+            }
+            set
+            {
+                _cardSelezionata = value;
+                RaisePropertyChanged();
+            }
+        }
+           
 
 
 
         public HomePageViewModel()
         {
+            MostraCardCommand = new RelayCommand(MostraDettagliCard);
+            EliminaGiftCardCommand = new RelayCommand(EliminaGiftCard);
+            VaiAllaVistaCreaCommand = new RelayCommand(VaiAllaVistaCrea);
             Bl = DependencyContainer.Resolve<IBusinessLayer>();
             var lista = Bl.GetAllGiftCards();
             foreach (var card in lista)
             {
-                CardDaVisualizzareInHome.Add($" {card.Destinatario} - {card.Importo}€");
+                CardDaVisualizzareInHome.Add($"{card.Destinatario} - {card.Importo}€");
             }
+        }
+
+        private void VaiAllaVistaCrea()
+        {
+            var showCreateMessage = new ShowViewMessage { ViewName = "InserGiftCardView" };
+            Messenger.Default.Send(showCreateMessage);
+        }
+
+        private void EliminaGiftCard()
+        {          
+            var objDaEliminare = Bl.GetGiftCardByName(RicavaNome(CardSelezionata));
+            Bl.CancellaGiftCard(objDaEliminare);
+        }
+
+        private void MostraDettagliCard()
+        {
+
+            var objDaMostrare = Bl.GetGiftCardByName(RicavaNome(CardSelezionata));
+            CardDaVisualizzareConDettagli = objDaMostrare.ToLongString();
+        }
+
+        private string RicavaNome(string stringaSelezionata)
+        {
+            var nomeDestinatario = Regex.Replace(stringaSelezionata.Split()[0], @"[^0-9a-zA-Z\ ]+", "");            
+            return nomeDestinatario;
         }
     }
 }
