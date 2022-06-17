@@ -31,22 +31,34 @@ namespace Week8Test.Repository
         };
         public bool Add(GiftCard item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+            {
+                return false;
+            }
+            _ListaGift.Add(item);
+            return true;
         }
 
         public bool Delete(GiftCard item)
         {
-            throw new NotImplementedException();
+            var giftCardDaEliminare = _ListaGift.FirstOrDefault(d => d.Id == item.Id);
+            if (giftCardDaEliminare == null) return false;
+            _ListaGift.Remove(giftCardDaEliminare);
+            return true;
         }
 
         public List<GiftCard> GetAll()
         {
-            throw new NotImplementedException();
+            return _ListaGift;
         }
 
         public bool Update(GiftCard item)
         {
-            throw new NotImplementedException();
+            var giftCardDaAggiornare = _ListaGift.FirstOrDefault(d => d.Id == item.Id);
+            giftCardDaAggiornare.Mittente = item.Mittente;
+            giftCardDaAggiornare.Destinatario = item.Destinatario;
+            giftCardDaAggiornare.Messaggio = item.Messaggio;    
+            return true;
         }
     }
 }
