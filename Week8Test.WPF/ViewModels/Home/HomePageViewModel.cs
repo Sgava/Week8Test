@@ -36,7 +36,8 @@ namespace Week8Test.WPF.ViewModels.Home
                 RaisePropertyChanged();
             }
         }
-
+        //observablecollection
+        //istanza di ICollectionView    dal tipo CollectionView(ObservableCollection)
         public List<string> CardDaVisualizzareInHome
         {
             get
@@ -95,7 +96,7 @@ namespace Week8Test.WPF.ViewModels.Home
 
         private void VaiAllaVistaCrea()
         {
-            var showCreateMessage = new ShowViewMessage { ViewName = "InserGiftCardView" };
+            var showCreateMessage = new ShowViewMessage { ViewName = "InsertGiftCardView" };
             Messenger.Default.Send(showCreateMessage);
         }
 
@@ -109,7 +110,9 @@ namespace Week8Test.WPF.ViewModels.Home
         {
 
             var objDaMostrare = Bl.GetGiftCardByName(RicavaNome(CardSelezionata));
-            CardDaVisualizzareConDettagli = objDaMostrare.ToLongString();
+            if (objDaMostrare == null) CardDaVisualizzareConDettagli = "Gift Card Inesistente";
+            else
+                CardDaVisualizzareConDettagli = objDaMostrare.ToLongString();
         }
 
         private string RicavaNome(string stringaSelezionata)

@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week8Test.CORE", "Week8Test
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week8Test.Repository", "Week8Test.Repository\Week8Test.Repository.csproj", "{26C9B43E-BCAE-40F2-BD6D-8283381EEC38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week8Test.WPF", "Week8Test.WPF\Week8Test.WPF.csproj", "{29AE7991-68B8-49D3-B88B-33C01C845906}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Week8Test.WPF", "Week8Test.WPF\Week8Test.WPF.csproj", "{29AE7991-68B8-49D3-B88B-33C01C845906}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Week8Test.Test", "Week8Test.Test\Week8Test.Test.csproj", "{8AAEF31D-4E05-4248-A52C-405DB3CEB32D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{29AE7991-68B8-49D3-B88B-33C01C845906}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29AE7991-68B8-49D3-B88B-33C01C845906}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29AE7991-68B8-49D3-B88B-33C01C845906}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AAEF31D-4E05-4248-A52C-405DB3CEB32D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAEF31D-4E05-4248-A52C-405DB3CEB32D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAEF31D-4E05-4248-A52C-405DB3CEB32D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAEF31D-4E05-4248-A52C-405DB3CEB32D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

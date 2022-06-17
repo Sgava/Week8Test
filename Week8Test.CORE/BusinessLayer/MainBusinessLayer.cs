@@ -23,7 +23,8 @@ namespace Week8Test.CORE.BusinessLayer
 
         public bool CancellaGiftCard(GiftCard gift)
         {
-            throw new NotImplementedException();
+            _repositoryCard.Delete(gift);
+            return true;
         }
 
         public bool CreaGiftCard(GiftCard gift)

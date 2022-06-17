@@ -67,7 +67,7 @@
                     <Button Margin="20"
                             Height="50"
                             FontSize="20"
-                            >Crea Una Gift Card</Button>
+                            Command="{Binding VaiAllaVistaCreaCommand}">Crea Una Gift Card</Button>
                 </StackPanel>
                 <Grid Grid.Column="0" Grid.Row="3">
                     <Grid.ColumnDefinitions>
@@ -88,7 +88,7 @@
                                 Height="50"
                                 FontSize="20"
                                 Background="Red"
-                                >Elimina</Button>
+                                Command="{Binding EliminaGiftCardCommand}">Elimina</Button>
                     </StackPanel>
                 </Grid>
                 

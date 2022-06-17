@@ -27,6 +27,14 @@ namespace Week8Test.Repository
                 Mittente = "Gió",
                 DataDiScadenza = new DateTime(2023,4,1),
                 Importo = 200
+            },
+            new GiftCard
+            {
+                Id = 3,
+                Destinatario = "CardProvaDaEliminare",
+                Mittente = "Gió",
+                DataDiScadenza = new DateTime(2023,4,1),
+                Importo = 200
             }
         };
         public bool Add(GiftCard item)
@@ -47,7 +55,7 @@ namespace Week8Test.Repository
 
         public bool Delete(GiftCard item)
         {
-            var giftCardDaEliminare = _ListaGift.FirstOrDefault(d => d.Id == item.Id);
+            var giftCardDaEliminare = _ListaGift.FirstOrDefault(d => d.Destinatario == item.Destinatario);
             if (giftCardDaEliminare == null) return false;
             _ListaGift.Remove(giftCardDaEliminare);
             return true;

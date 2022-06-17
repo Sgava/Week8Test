@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Week8Test.WPF.ViewModels.InsertGiftCard;
 
 namespace Week8Test.WPF.Views.InsertGiftCard
 {
@@ -22,6 +23,7 @@ namespace Week8Test.WPF.Views.InsertGiftCard
         public InsertGiftCardView()
         {
             InitializeComponent();
+            DataContext = new InsertGiftCardViewModel();
         }
     }
 }
